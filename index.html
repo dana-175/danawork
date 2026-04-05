@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دانة القلم | مستقلة محترفة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue-dark: #0D2137;
+      --blue-mid: #1A5276;
+      --blue-light: #AED6F1;
+      --blue-pale: #EBF5FB;
+      --accent: #2E86C1;
+      --white: #ffffff;
+      --text: #1B2A38;
+    }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: linear-gradient(135deg, #EBF5FB 0%, #D6EAF8 50%, #AED6F1 100%);
+      min-height: 100vh;
+      color: var(--text);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(46,134,193,0.15) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      object-fit: cover;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 32px rgba(46,134,193,0.3);
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--blue-dark);
+      margin-bottom: 10px;
+      animation: fadeDown 0.9s ease both;
+    }
+
+    .hero .title {
+      font-size: 1.2rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 16px;
+      animation: fadeDown 1s ease both;
+    }
+
+    .hero .bio {
+      font-size: 1rem;
+      color: #2C3E50;
+      max-width: 500px;
+      line-height: 1.8;
+      margin-bottom: 36px;
+      animation: fadeDown 1.1s ease both;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeDown 1.2s ease both;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--blue-dark);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,134,193,0.4);
+    }
+
+    .btn-outline {
+      background: white;
+      color: var(--blue-dark);
+      border: 2px solid var(--blue-dark);
+    }
+
+    .btn-outline:hover {
+      background: var(--blue-pale);
+      transform: translateY(-2px);
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--blue-dark);
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--accent);
+      margin-bottom: 50px;
+      font-size: 1rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 36px 28px;
+      box-shadow: 0 4px 24px rgba(13,33,55,0.08);
+      transition: all 0.3s ease;
+      border-top: 4px solid var(--accent);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(46,134,193,0.2);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .card .price {
+      display: inline-block;
+      background: var(--blue-pale);
+      color: var(--accent);
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .card a {
+      display: block;
+      text-align: center;
+      background: var(--blue-dark);
+      color: white;
+      padding: 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .card a:hover {
+      background: var(--accent);
+    }
+
+    /* SKILLS */
+    .skills-section {
+      background: var(--blue-dark);
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .skills-section .section-title {
+      color: white;
+    }
+
+    .skills-section .section-sub {
+      color: var(--blue-light);
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .skill-tag {
+      background: rgba(255,255,255,0.1);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* CONTACT */
+    .contact {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .contact-box {
+      background: white;
+      border-radius: 24px;
+      padding: 50px 40px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 8px 40px rgba(13,33,55,0.1);
+    }
+
+    .contact-box h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--blue-dark);
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      color: #555;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .contact-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .contact-box { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=200&h=200&fit=crop" alt="Dana" class="avatar">
+    <h1>دانة القلم</h1>
+    <p class="title">طالبة طب | مستقلة في إدخال البيانات والتفريغ الصوتي</p>
+    <p class="bio">أقدم خدمات احترافية بدقة عالية والتزام بالمواعيد. حاصلة على شهادة Excel وأعمل على شهادة ICDL الدولية.</p>
+    <div class="social-links">
+      <a href="https://khamsat.com/data/data-entry/4177131" class="btn-primary" target="_blank">🛒 خمسات</a>
+      <a href="https://www.linkedin.com/in/dana-alqalam" class="btn-outline" target="_blank">💼 لينكدإن</a>
+      <a href="https://www.instagram.com/exploring_student" class="btn-outline" target="_blank">📸 انستغرام</a>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <h2 class="section-title">خدماتي</h2>
+    <p class="section-sub">أقدم خدمات احترافية بأسعار مناسبة</p>
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>إدخال البيانات</h3>
+        <p>إدخال بياناتك بدقة واحترافية إلى Excel أو Word من أي مصدر مع مراجعة الأخطاء والتسليم خلال 24 ساعة.</p>
+        <span class="price">يبدأ من 5$</span>
+        <a href="https://khamsat.com/data/data-entry/4177131" target="_blank">اطلب الخدمة</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🎙️</div>
+        <h3>التفريغ الصوتي</h3>
+        <p>تفريغ تسجيلاتك الصوتية ومقاطع الفيديو إلى نص مكتوب بدقة عالية باللغة العربية مع التسليم خلال 24 ساعة.</p>
+        <span class="price">5$ / 10 دقائق</span>
+        <a href="https://khamsat.com/audio/audio-services/4181553" target="_blank">اطلب الخدمة</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills-section">
+    <h2 class="section-title">مهاراتي</h2>
+    <p class="section-sub">أعمل باستمرار على تطوير نفسي</p>
+    <div class="skills-grid">
+      <span class="skill-tag">Microsoft Excel</span>
+      <span class="skill-tag">إدخال البيانات</span>
+      <span class="skill-tag">التفريغ الصوتي</span>
+      <span class="skill-tag">ICDL</span>
+      <span class="skill-tag">تنسيق المستندات</span>
+      <span class="skill-tag">Microsoft Word</span>
+      <span class="skill-tag">الرعاية الصحية</span>
+      <span class="skill-tag">العمل عن بُعد</span>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <div class="contact-box">
+      <h2>تواصلي معي 💙</h2>
+      <p>هل تحتاج خدمة إدخال بيانات أو تفريغ صوتي؟ أنا هنا لمساعدتك بأفضل جودة وأسرع وقت.</p>
+      <div class="contact-btns">
+        <a href="https://khamsat.com/data/data-entry/4177131" class="btn-primary" target="_blank" style="padding:12px 24px; border-radius:50px; text-decoration:none; font-weight:700; font-size:0.95rem;">تواصل عبر خمسات</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    صُنع بـ 💙 من دانة القلم © 2026
+  </footer>
+
+</body>
+</html>
